@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      // すべてのフォームをイベントリスナーに登録する
+      function preventFormSubmit() {
+        var forms = document.querySelectorAll('form');
+        for (var i = 0; i < forms.length; i++) {
+          forms[i].addEventListener('submit', function(event) {
+            event.preventDefault();
+          });
+        }
+      }
+      window.addEventListener('load', preventFormSubmit);
+      
+      // フォームのサブミットで呼ばれる処理
+      function readFile(formObject) {
+        // GASで定義した関数を呼び出す
+        google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).processCSVFile(formObject);
+      }
+      
+      // 成功時の処理
+      function onSuccess() {
+        alert('ファイルの処理が完了しました');
+        google.script.host.close();
+      }
+
+      // 失敗時の処理
+      function onFailure(error) {
+        alert(error.message);
+        google.script.host.close();
+      }
+    </script>
+  </head>
+  <body>
+    <form id="myForm" onsubmit="readFile(this)" enctype="multipart/form-data">
+      <input name="myFile" type="file" /><br>
+      <p></p>
+      <button type="submit">インポート</button>
+
+    </form>
+  </body>
+</html>
