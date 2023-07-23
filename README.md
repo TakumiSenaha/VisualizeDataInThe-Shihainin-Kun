@@ -1,4 +1,4 @@
-# 予約管理システムの情報をスプレッドシートで可視化して管理
+# 予約管理システムの情報をスプレッドシートで可視化
 クリップサイトが提供する，「支配人くん」という宿泊施設用顧客管理システムにおいて，そこから出力できるデータをスプレッドシートで可視化することを実現する．
 ## Google Spread Sheet はこちらから (制限付き)
 * [シフト作成用](https://docs.google.com/spreadsheets/d/1Emql8ubmRbDYcJXpbAWaAqKL-nhLJAd2kIh2zj6haKk/edit?usp=drive_link)
